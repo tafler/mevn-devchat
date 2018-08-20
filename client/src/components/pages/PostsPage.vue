@@ -31,8 +31,8 @@
   </div>
 </template>
 
-<script>
-  import PostsServices from '@/servies/PostService';
+<script> 
+  import PostsService from '@/services/PostsService.js';
 
   export default {
     name: 'PostsPage',
