@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
+
 const Shema = mongoose.Schema;
 
 const PostShema = new Shema({
   title: {
-    type: string,
+    type: String,
     unique: true,
   },
   description: {
-    type: string,
+    type: String,
   },
 });
 
