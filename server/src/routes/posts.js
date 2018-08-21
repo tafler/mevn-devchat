@@ -42,7 +42,7 @@ router.get('/posts/:id', (req, res) => {
   });
 });
 
-router.put('/post/:id', (req, res) => {
+router.put('/posts/:id', (req, res) => {
   Posts.findById(req.params.id, 'title descriptions', (err, post) => {
     if (err) {
       console.log(err);
@@ -64,11 +64,14 @@ router.put('/post/:id', (req, res) => {
   });
 });
 
-router.delete('/post/:id', (req, res) => {
+router.delete('/posts/:id', (req, res) => {
+  console.log(req, res);
   Posts.remove({ _id: req.params.id }, (e) => {
     if (e) {
+      console.log('somsing going down');
       res.sendStatus(500);
     } else {
+      console.log('all done!');
       res.sendStatus(200);
     }
   });

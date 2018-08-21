@@ -20,17 +20,21 @@ mongoose.connect(config.dbURL, { useNewUrlParser: true });
 mongoose.connection
   .once('open', () => {
     console.log('Mongoose - successful connect ...');
-    app.listen(process.env.PORT || config.port, () => {
-      console.log(`Server starting at port ${config.port}`);
-    });
+    try {
+      app.listen(process.env.PORT || config.port, () => {
+        console.log(`Server starting at port ${config.port}`);
+      });
+    } catch (exception) {
+      console.log('exception: ', exception);
+    }
   })
   .on('error', e => console.log('@@@', e));
 
-app.get('/posts', (req, res) => {
-  res.send(
-    [{
-      title: 'Hello World!',
-      description: 'Hi there! How are you?',
-    }],
-  );
-});
+// app.get('/posts', (req, res) => {
+//   res.send(
+//     [{
+//       title: 'Hello World!',
+//       description: 'Hi there! How are you?',
+//     }],
+//   );
+// });
