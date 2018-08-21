@@ -7,6 +7,7 @@
         <section class="panel panel-succes" v-if="posts.length">
           <div class="panel-heading">
             List of posts
+            <router-link :to="{ name: 'NewPost'}">add new post</router-link>
           </div>
           <table class="table table-striped">
             <tr>
