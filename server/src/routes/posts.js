@@ -64,4 +64,14 @@ router.put('/post/:id', (req, res) => {
   });
 });
 
+router.delete('/post/:id', (req, res) => {
+  Posts.remove({ _id: req.params.id }, (e) => {
+    if (e) {
+      res.sendStatus(500);
+    } else {
+      res.sendStatus(200);
+    }
+  });
+});
+
 module.exports = router;
