@@ -1,2 +1,14 @@
-'client/node_modules'
-'server/node_modules'
+server/node_modules/*
+client/node_modules/*
+client/dist/
+client/npm-debug.log*
+client/test/unit/coverage/
+client/test/e2e/reports/
+client/package-lock.json
+
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
