@@ -43,7 +43,7 @@
     },
     methods: {
       async getPosts() {
-        const response = await PostsServices.fetchPosts();
+        const response = await PostsService.fetchPosts();
         this.posts = response.data.posts;
       }
     },

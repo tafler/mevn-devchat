@@ -31,5 +31,37 @@ router.get('/posts', (req, res) => {
   }).sort({ _id: -1 });
 });
 
+router.get('/posts/:id', (req, res) => {
+  Posts.findById(req.params.id, 'title description', (err, post) => {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      res.send(post);
+    }
+  });
+});
+
+router.put('/post/:id', (req, res) => {
+  Posts.findById(req.params.id, 'title descriptions', (err, post) => {
+    if (err) {
+      console.log(err);
+    } else {
+      if (req.body.title) {
+        post.title = req.body.title;
+      }
+      if (req.body.description) {
+        post.description = req.body.description;
+      }
+      post.save((e) => {
+        if (e) {
+          res.sendStatus(500);
+        } else {
+          res.sendStatus(200);
+        }
+      });
+    }
+  });
+});
 
 module.exports = router;

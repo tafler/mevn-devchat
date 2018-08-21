@@ -5,5 +5,6 @@ module.exports = {
         "strict": 0,
         "import/no-extraneous-dependencies": 0,
         "no-underscore-dangle": 0,
+        "no-param-reassign": 0,
     }
 };
